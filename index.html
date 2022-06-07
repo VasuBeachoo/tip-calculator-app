@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
     <title>Splitter Tip Calculator</title>
   </head>
@@ -15,29 +21,65 @@
           <div class="input__container">
             <div class="input__label-container">
               <p class="input__label">Bill</p>
+              <img
+                src="./images/icon-dollar.svg"
+                alt="icon-dollar"
+                id="icon-dollar"
+                class="input__icon"
+              />
             </div>
-            <input type="number" class="input__input" />
+            <input type="text" class="input__input" placeholder="0" />
           </div>
           <div class="input__container">
             <div class="input__label-container">
               <p class="input__label">Select Tip %</p>
             </div>
             <div class="input__btn-row">
-              <button class="input__btn">5%</button>
-              <button class="input__btn">10%</button>
-              <button class="input__btn">15%</button>
+              <button
+                class="input__btn input__btn--fixed input__btn--unclicked"
+              >
+                5%
+              </button>
+              <button
+                class="input__btn input__btn--fixed input__btn--unclicked"
+              >
+                10%
+              </button>
+              <button
+                class="input__btn input__btn--fixed input__btn--unclicked"
+              >
+                15%
+              </button>
             </div>
             <div class="input__btn-row">
-              <button class="input__btn">25%</button>
-              <button class="input__btn">50%</button>
-              <input type="number" class="input__btn" placeholder="Custom" />
+              <button
+                class="input__btn input__btn--fixed input__btn--unclicked"
+              >
+                25%
+              </button>
+              <button
+                class="input__btn input__btn--fixed input__btn--unclicked"
+              >
+                50%
+              </button>
+              <input
+                type="text"
+                class="input__btn input__btn--input"
+                placeholder="Custom"
+              />
             </div>
           </div>
           <div class="input__container">
             <div class="input__label-container">
               <p class="input__label">Number of People</p>
+              <img
+                src="./images/icon-person.svg"
+                alt="icon-person"
+                id="icon-person"
+                class="input__icon"
+              />
             </div>
-            <input type="number" class="input__input" />
+            <input type="text" class="input__input" placeholder="0" />
           </div>
         </section>
         <section class="display">

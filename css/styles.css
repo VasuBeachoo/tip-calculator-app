@@ -17,10 +17,12 @@ body {
       -ms-flex-align: center;
           align-items: center;
   min-height: 100vh;
+  background-color: #c5e4e7;
 }
 
 .logo {
-  margin: 50px;
+  margin: 50px 0 0 0;
+  width: 70px;
 }
 
 .component {
@@ -37,6 +39,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: white;
+  width: 700px;
+  padding: 35px 40px;
+  border-radius: 15px;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  margin: 50px;
 }
 
 .input {
@@ -47,12 +56,14 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  width: 50%;
+  height: 295px;
 }
 
 .input__container {
@@ -69,6 +80,7 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  width: 77%;
 }
 
 .input__label-container {
@@ -87,6 +99,53 @@ body {
           align-items: center;
 }
 
+.input__label {
+  color: #5e7a7d;
+  font-size: 14.5px;
+  margin: 0 0 5px;
+}
+
+.input__icon {
+  width: 10px;
+}
+
+.input__input {
+  background-color: #f4fafa;
+  color: #00494d;
+  width: 100%;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: right;
+}
+
+.input__input::-webkit-input-placeholder {
+  color: #00494d;
+  opacity: 0.5;
+}
+
+.input__input:-ms-input-placeholder {
+  color: #00494d;
+  opacity: 0.5;
+}
+
+.input__input::-ms-input-placeholder {
+  color: #00494d;
+  opacity: 0.5;
+}
+
+.input__input::placeholder {
+  color: #00494d;
+  opacity: 0.5;
+}
+
+.input__input:focus {
+  outline: 2px solid #26c0ab;
+}
+
 .input__btn-row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -95,12 +154,84 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 300px;
+  margin: 5px 0;
+}
+
+.input__btn {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 16px;
+  width: 95px;
+  padding: 8px 0px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border: none;
+}
+
+.input__btn--unclicked {
+  background-color: #00494d;
+  color: white;
+}
+
+.input__btn--clicked {
+  background-color: #26c0ab;
+  color: #00494d;
+}
+
+.input__btn--fixed:hover {
+  cursor: pointer;
+  background-color: #afeeee;
+  color: #00494d;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.input__btn--input {
+  background-color: #f4fafa;
+  color: #00494d;
+  width: 95px;
+  text-align: center;
+}
+
+.input__btn--input::-webkit-input-placeholder {
+  color: #00494d;
+  opacity: 0.8;
+}
+
+.input__btn--input:-ms-input-placeholder {
+  color: #00494d;
+  opacity: 0.8;
+}
+
+.input__btn--input::-ms-input-placeholder {
+  color: #00494d;
+  opacity: 0.8;
+}
+
+.input__btn--input::placeholder {
+  color: #00494d;
+  opacity: 0.8;
+}
+
+.input__btn--input:focus {
+  outline: 2px solid #26c0ab;
+}
+
+#icon-dollar {
+  -webkit-transform: translate(-21px, 32px);
+          transform: translate(-21px, 32px);
+}
+
+#icon-person {
+  -webkit-transform: translate(-125px, 32px);
+          transform: translate(-125px, 32px);
 }
 
 .display {
@@ -117,6 +248,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #00494d;
+  width: 50%;
+  border-radius: 15px;
 }
 
 .display__container {

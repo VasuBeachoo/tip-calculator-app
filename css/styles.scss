@@ -1,6 +1,19 @@
 ///////////////////////////////////////
 // VARIABLES //////////////////////////
 
+$colors: (
+  Strong-cyan: hsl(172, 67%, 45%),
+  Very-dark-cyan: hsl(183, 100%, 15%),
+  Dark-grayish-cyan: hsl(186, 14%, 43%),
+  Grayish-cyan: hsl(184, 14%, 56%),
+  Light-grayish-cyan: hsl(185, 41%, 84%),
+  Very-light-grayish-cyan: hsl(189, 41%, 97%),
+  White: hsl(0, 0%, 100%),
+  Pale-turqoise: #afeeee,
+);
+
+$font: "Space Mono", monospace;
+
 ///////////////////////////////////////
 // MIXINS /////////////////////////////
 
@@ -14,6 +27,10 @@
 ///////////////////////////////////////
 // FUNCTIONS //////////////////////////
 
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
 ///////////////////////////////////////
 // STYLES /////////////////////////////
 
@@ -24,34 +41,137 @@ body {
 .component-container {
   @include flex(column, flex-start, center);
   min-height: 100vh;
+  background-color: color(Light-grayish-cyan);
 }
 
 .logo {
-  margin: 50px;
+  margin: 50px 0 0 0;
+  width: 70px;
 }
 
 .component {
   @include flex(row, center, center);
+  background-color: color(White);
+  width: 700px;
+  padding: 35px 40px;
+  border-radius: 15px;
+  font-family: $font;
+  font-weight: 700;
+  margin: 50px;
 }
 
 .input {
-  @include flex(column, flex-start, flex-start);
+  @include flex(column, space-between, flex-start);
+  width: 50%;
+  height: 295px;
 
   &__container {
     @include flex(column, flex-start, flex-start);
+    width: 77%;
   }
 
   &__label-container {
     @include flex(row, flex-start, center);
   }
 
-  &__btn-row {
-    @include flex(row, center, center);
+  &__label {
+    color: color(Dark-grayish-cyan);
+    font-size: 14.5px;
+    margin: 0 0 5px;
   }
+
+  &__icon {
+    width: 10px;
+  }
+
+  &__input {
+    background-color: color(Very-light-grayish-cyan);
+    color: color(Very-dark-cyan);
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    font-family: $font;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: right;
+
+    &::placeholder {
+      color: color(Very-dark-cyan);
+      opacity: 0.5;
+    }
+
+    &:focus {
+      outline: 2px solid color(Strong-cyan);
+    }
+  }
+
+  &__btn-row {
+    @include flex(row, space-between, center);
+    width: 300px;
+    margin: 5px 0;
+  }
+
+  &__btn {
+    font-family: $font;
+    font-weight: 700;
+    font-size: 16px;
+    width: 95px;
+    padding: 8px 0px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    border: none;
+
+    &--unclicked {
+      background-color: color(Very-dark-cyan);
+      color: color(White);
+    }
+
+    &--clicked {
+      background-color: color(Strong-cyan);
+      color: color(Very-dark-cyan);
+    }
+
+    &--fixed {
+      &:hover {
+        cursor: pointer;
+        background-color: color(Pale-turqoise);
+        color: color(Very-dark-cyan);
+        transition: 0.3s;
+      }
+    }
+
+    &--input {
+      background-color: color(Very-light-grayish-cyan);
+      color: color(Very-dark-cyan);
+      width: 95px;
+      text-align: center;
+
+      &::placeholder {
+        color: color(Very-dark-cyan);
+        opacity: 0.8;
+      }
+
+      &:focus {
+        outline: 2px solid color(Strong-cyan);
+      }
+    }
+  }
+}
+
+#icon-dollar {
+  transform: translate(-21px, 32px);
+}
+
+#icon-person {
+  transform: translate(-125px, 32px);
 }
 
 .display {
   @include flex(column, flex-start, center);
+  background-color: color(Very-dark-cyan);
+  width: 50%;
+  border-radius: 15px;
 
   &__container {
     @include flex(row, flex-start, center);
