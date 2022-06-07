@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Splitter Tip Calculator</title>
+  </head>
+  <body>
+    <main class="component-container">
+      <img src="./images/logo.svg" alt="logo" class="logo" />
+      <div class="component">
+        <section class="input">
+          <div class="bill-container">
+            <div class="bill-label-container">
+              <p class="bill">Bill</p>
+            </div>
+            <input type="number" class="bill-input" />
+          </div>
+          <div class="tip-container">
+            <div class="tip-label-container">
+              <p class="tip-label">Select Tip %</p>
+            </div>
+            <div class="tip-row">
+              <button class="tip-btn">5%</button>
+              <button class="tip-btn">10%</button>
+              <button class="tip-btn">15%</button>
+            </div>
+            <div class="tip-row">
+              <button class="tip-btn">25%</button>
+              <button class="tip-btn">50%</button>
+              <input type="number" class="tip-btn" placeholder="Custom" />
+            </div>
+          </div>
+          <div class="people-container">
+            <div class="people-label-container">
+              <p class="people-label">Number of People</p>
+            </div>
+            <input type="number" class="people-input" />
+          </div>
+        </section>
+        <section class="display">
+          <div class="tip-amount-container">
+            <div class="tip-display-container">
+              <p class="tip-display-heading">Tip Amount</p>
+              <p class="per-person-text">/ person</p>
+            </div>
+            <h3 class="tip-amount">$0.00</h3>
+          </div>
+          <div class="total-amount-container">
+            <div class="tip-display-container">
+              <p class="total-display-heading">Total Amount</p>
+              <p class="per-person-text">/ person</p>
+            </div>
+            <h3 class="total-amount">$0.00</h3>
+          </div>
+          <button class="reset-btn">RESET</button>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
