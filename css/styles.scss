@@ -1,0 +1,67 @@
+///////////////////////////////////////
+// VARIABLES //////////////////////////
+
+///////////////////////////////////////
+// MIXINS /////////////////////////////
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+///////////////////////////////////////
+// FUNCTIONS //////////////////////////
+
+///////////////////////////////////////
+// STYLES /////////////////////////////
+
+body {
+  margin: 0;
+}
+
+.component-container {
+  @include flex(column, flex-start, center);
+  min-height: 100vh;
+}
+
+.logo {
+  margin: 50px;
+}
+
+.component {
+  @include flex(row, center, center);
+}
+
+.input {
+  @include flex(column, flex-start, flex-start);
+
+  &__container {
+    @include flex(column, flex-start, flex-start);
+  }
+
+  &__label-container {
+    @include flex(row, flex-start, center);
+  }
+
+  &__btn-row {
+    @include flex(row, center, center);
+  }
+}
+
+.display {
+  @include flex(column, flex-start, center);
+
+  &__container {
+    @include flex(row, flex-start, center);
+  }
+
+  &__label-container {
+    @include flex(column, center, flex-start);
+  }
+
+  &__btn {
+    margin-top: auto;
+  }
+}
