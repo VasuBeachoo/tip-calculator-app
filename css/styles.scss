@@ -45,7 +45,7 @@ body {
 }
 
 .logo {
-  margin: 50px 0 0 0;
+  margin: 60px 0 0 0;
   width: 70px;
 }
 
@@ -57,7 +57,9 @@ body {
   border-radius: 15px;
   font-family: $font;
   font-weight: 700;
-  margin: 50px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  margin: 40px;
 }
 
 .input {
@@ -168,20 +170,58 @@ body {
 }
 
 .display {
-  @include flex(column, flex-start, center);
+  @include flex(column, flex-start, flex-start);
   background-color: color(Very-dark-cyan);
   width: 50%;
+  height: 295px;
   border-radius: 15px;
 
   &__container {
-    @include flex(row, flex-start, center);
+    @include flex(row, flex-start, flex-start);
+    width: 100%;
+    margin: 30px 25px 0;
   }
 
   &__label-container {
     @include flex(column, center, flex-start);
   }
 
+  &__heading {
+    color: color(White);
+    font-size: 15px;
+    margin: 0;
+  }
+
+  &__text {
+    color: color(Grayish-cyan);
+    font-size: 13px;
+    margin: 0;
+  }
+
+  &__amount {
+    color: color(Strong-cyan);
+    font-size: 30px;
+    margin: 0 52px 0 auto;
+  }
+
   &__btn {
-    margin-top: auto;
+    align-self: center;
+    text-align: center;
+    background-color: color(Strong-cyan);
+    color: color(Very-dark-cyan);
+    font-family: $font;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    width: 300px;
+    padding: 10px;
+    margin: auto 0 25px;
+    transition: 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: color(Pale-turqoise);
+    }
   }
 }
