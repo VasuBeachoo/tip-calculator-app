@@ -182,17 +182,21 @@ body {
   color: white;
 }
 
-.input__btn--clicked {
-  background-color: #26c0ab;
-  color: #00494d;
-}
-
-.input__btn--fixed:hover {
+.input__btn--unclicked:hover {
   cursor: pointer;
   background-color: #afeeee;
   color: #00494d;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+}
+
+.input__btn--clicked {
+  background-color: #26c0ab;
+  color: #00494d;
+}
+
+.input__btn:hover {
+  cursor: pointer;
 }
 
 .input__btn--input {

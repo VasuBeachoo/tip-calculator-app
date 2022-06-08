@@ -127,6 +127,13 @@ body {
     &--unclicked {
       background-color: color(Very-dark-cyan);
       color: color(White);
+
+      &:hover {
+        cursor: pointer;
+        background-color: color(Pale-turqoise);
+        color: color(Very-dark-cyan);
+        transition: 0.3s;
+      }
     }
 
     &--clicked {
@@ -134,13 +141,8 @@ body {
       color: color(Very-dark-cyan);
     }
 
-    &--fixed {
-      &:hover {
-        cursor: pointer;
-        background-color: color(Pale-turqoise);
-        color: color(Very-dark-cyan);
-        transition: 0.3s;
-      }
+    &:hover {
+      cursor: pointer;
     }
 
     &--input {

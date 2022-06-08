@@ -28,7 +28,12 @@
                 class="input__icon"
               />
             </div>
-            <input type="text" class="input__input" placeholder="0" />
+            <input
+              type="text"
+              id="bill-amount-input"
+              class="input__input"
+              placeholder="0"
+            />
           </div>
           <div class="input__container">
             <div class="input__label-container">
@@ -36,16 +41,19 @@
             </div>
             <div class="input__btn-row">
               <button
+                id="five-tip-btn"
                 class="input__btn input__btn--fixed input__btn--unclicked"
               >
                 5%
               </button>
               <button
+                id="ten-tip-btn"
                 class="input__btn input__btn--fixed input__btn--unclicked"
               >
                 10%
               </button>
               <button
+                id="fifteen-tip-btn"
                 class="input__btn input__btn--fixed input__btn--unclicked"
               >
                 15%
@@ -53,17 +61,20 @@
             </div>
             <div class="input__btn-row">
               <button
+                id="twenty-five-tip-btn"
                 class="input__btn input__btn--fixed input__btn--unclicked"
               >
                 25%
               </button>
               <button
+                id="fifty-tip-btn"
                 class="input__btn input__btn--fixed input__btn--unclicked"
               >
                 50%
               </button>
               <input
                 type="text"
+                id="custom-tip-btn"
                 class="input__btn input__btn--input"
                 placeholder="Custom"
               />
@@ -79,7 +90,12 @@
                 class="input__icon"
               />
             </div>
-            <input type="text" class="input__input" placeholder="0" />
+            <input
+              type="text"
+              id="people-number-input"
+              class="input__input"
+              placeholder="0"
+            />
           </div>
         </section>
         <section class="display">
@@ -97,9 +113,10 @@
             </div>
             <h3 id="total-amount-display" class="display__amount">$0.00</h3>
           </div>
-          <button class="display__btn">RESET</button>
+          <button id="reset-btn" class="display__btn">RESET</button>
         </section>
       </div>
     </main>
+    <script src="./js/script.js"></script>
   </body>
 </html>
