@@ -7,8 +7,9 @@ const totalDisplay = document.querySelector("#total-amount-display");
 const resetBtn = document.querySelector("#reset-btn");
 
 let billAmt = 0;
-let numPeople = 0;
+let numPeople = 1;
 let tipPercent = 0;
+let customCheck = true;
 let tipAmt = 0;
 let totalAmt = 0;
 let tipPerson = 0;
@@ -25,7 +26,7 @@ function resetView() {
 }
 
 function updateModel() {
-  if (peopleInput.value <= 0) {
+  if (peopleInput.value <= 0 && peopleInput.value != "") {
     resetView();
   } else if (billInput.value === "") {
     resetView();
@@ -33,11 +34,17 @@ function updateModel() {
     resetView();
   } else {
     billAmt = parseFloat(billInput.value);
-    numPeople = parseFloat(peopleInput.value);
-    if (customTipBtn.value === "") {
-      tipPercent = 0;
+    if (peopleInput.value === "") {
+      numPeople = 1;
     } else {
-      tipPercent = parseFloat(customTipBtn.value);
+      numPeople = parseFloat(peopleInput.value);
+    }
+    if (customCheck) {
+      if (customTipBtn.value === "") {
+        tipPercent = 0;
+      } else {
+        tipPercent = parseFloat(customTipBtn.value);
+      }
     }
     tipAmt = billAmt * (tipPercent / 100);
     totalAmt = billAmt + tipAmt;
@@ -48,6 +55,7 @@ function updateModel() {
 }
 
 function resetTipBtns() {
+  tipPercent = 0;
   tipBtns.forEach((tipBtn) => {
     tipBtn.className = "input__btn input__btn--fixed input__btn--unclicked";
   });
@@ -66,8 +74,19 @@ tipBtns.forEach((tipBtn) =>
   tipBtn.addEventListener("click", (e) => {
     resetTipBtns();
     customTipBtn.value = "";
+    customCheck = false;
     e.target.className = "input__btn input__btn--fixed input__btn--clicked";
+    if (e.target.id === "five-tip-btn") tipPercent = 5;
+    else if (e.target.id === "ten-tip-btn") tipPercent = 10;
+    else if (e.target.id === "fifteen-tip-btn") tipPercent = 15;
+    else if (e.target.id === "twenty-five-tip-btn") tipPercent = 25;
+    else if (e.target.id === "fifty-tip-btn") tipPercent = 50;
+    updateModel();
   })
 );
-customTipBtn.addEventListener("click", resetTipBtns);
+customTipBtn.addEventListener("click", () => {
+  customCheck = true;
+  resetTipBtns();
+  updateModel();
+});
 customTipBtn.addEventListener("input", updateModel);
