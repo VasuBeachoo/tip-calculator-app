@@ -253,8 +253,8 @@ body {
 }
 
 #icon-person {
-  -webkit-transform: translate(-125px, 32px);
-          transform: translate(-125px, 32px);
+  -webkit-transform: translate(-127.5px, 32px);
+          transform: translate(-127.5px, 32px);
 }
 
 .display {

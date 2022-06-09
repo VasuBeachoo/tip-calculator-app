@@ -28,8 +28,11 @@ const peopleError = document.createElement("p");
 peopleError.className = "input__error-msg";
 
 function notifyView() {
-  tipDisplay.innerText = "$" + tipPerson.toFixed(2);
-  totalDisplay.innerText = "$" + totalPerson.toFixed(2);
+  if (tipPerson <= 999999.99) tipDisplay.innerText = "$" + tipPerson.toFixed(2);
+  else tipDisplay.innerText = ">$1M";
+  if (totalPerson <= 999999.99)
+    totalDisplay.innerText = "$" + totalPerson.toFixed(2);
+  else totalDisplay.innerText = ">$1M";
 }
 
 function resetView() {
