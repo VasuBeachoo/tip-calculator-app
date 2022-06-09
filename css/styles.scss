@@ -15,6 +15,8 @@ $colors: (
 
 $font: "Space Mono", monospace;
 
+$mobile-width: 850px;
+
 ///////////////////////////////////////
 // MIXINS /////////////////////////////
 
@@ -23,6 +25,12 @@ $font: "Space Mono", monospace;
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
+}
+
+@mixin mobile() {
+  @media (max-width: $mobile-width) {
+    @content;
+  }
 }
 
 ///////////////////////////////////////
@@ -245,6 +253,47 @@ body {
     &:hover {
       cursor: pointer;
       background-color: color(Pale-turqoise);
+    }
+  }
+}
+
+@include mobile() {
+  .logo {
+    margin-top: 50px;
+  }
+
+  .component {
+    @include flex(column, flex-start, center);
+    width: 320px;
+  }
+
+  .input {
+    width: 100%;
+    margin-bottom: 25px;
+
+    &__container {
+      width: 100%;
+    }
+
+    &__error-msg {
+      transform: none;
+    }
+
+    &__input {
+      width: 291px;
+    }
+
+    &__btn-row {
+      width: 320px;
+    }
+  }
+
+  .display {
+    width: 100%;
+    height: 250px;
+
+    &__btn {
+      width: 275px;
     }
   }
 }

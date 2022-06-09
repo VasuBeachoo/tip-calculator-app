@@ -352,4 +352,50 @@ body {
   cursor: pointer;
   background-color: #afeeee;
 }
+
+@media (max-width: 850px) {
+  .logo {
+    margin-top: 50px;
+  }
+  .component {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 320px;
+  }
+  .input {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+  .input__container {
+    width: 100%;
+  }
+  .input__error-msg {
+    -webkit-transform: none;
+            transform: none;
+  }
+  .input__input {
+    width: 291px;
+  }
+  .input__btn-row {
+    width: 320px;
+  }
+  .display {
+    width: 100%;
+    height: 250px;
+  }
+  .display__btn {
+    width: 275px;
+  }
+}
 /*# sourceMappingURL=styles.css.map */
