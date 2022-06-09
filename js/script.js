@@ -98,6 +98,14 @@ function checkErrors() {
 }
 
 function updateModel() {
+  if (
+    billInput.value === "" &&
+    tipPercent === 0 &&
+    customTipBtn.value === "" &&
+    peopleInput.value === ""
+  )
+    resetBtn.className = "display__btn display__btn--unclickable";
+  else resetBtn.className = "display__btn display__btn--clickable";
   if (checkErrors()) {
   } else {
     resetView();
@@ -139,6 +147,7 @@ resetBtn.addEventListener("click", () => {
   resetView();
   removeErrors();
   resetTipBtns();
+  resetBtn.className = "display__btn display__btn--unclickable";
   billInput.value = "";
   customTipBtn.value = "";
   peopleInput.value = "";

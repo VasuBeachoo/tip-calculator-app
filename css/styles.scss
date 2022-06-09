@@ -250,9 +250,15 @@ body {
     margin: auto 0 25px;
     transition: 0.2s;
 
-    &:hover {
-      cursor: pointer;
-      background-color: color(Pale-turqoise);
+    &--unclickable {
+      opacity: 0.3;
+    }
+
+    &--clickable {
+      &:hover {
+        cursor: pointer;
+        background-color: color(Pale-turqoise);
+      }
     }
   }
 }

@@ -348,7 +348,11 @@ body {
   transition: 0.2s;
 }
 
-.display__btn:hover {
+.display__btn--unclickable {
+  opacity: 0.3;
+}
+
+.display__btn--clickable:hover {
   cursor: pointer;
   background-color: #afeeee;
 }
