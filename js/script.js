@@ -69,12 +69,14 @@ function checkErrors() {
   if (billInput.value === "") removeErrors();
   if (customTipBtn.value === "") removeErrors();
   if (peopleInput.value === "") removeErrors();
-  if (
-    (peopleInput.value <= 0 || isNaN(parseFloat(peopleInput.value))) &&
-    peopleInput.value != ""
-  ) {
+  if (peopleInput.value <= 0 && peopleInput.value != "") {
     resetView();
     displayError("people", "Must be positive");
+    errorPresent = true;
+  }
+  if (isNaN(parseFloat(peopleInput.value)) && peopleInput.value != "") {
+    resetView();
+    displayError("people", "Must be a number");
     errorPresent = true;
   }
   if (customTipBtn.value < 0) {
