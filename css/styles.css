@@ -99,12 +99,21 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
 }
 
 .input__label {
   color: #5e7a7d;
   font-size: 14.5px;
   margin: 0 0 5px;
+}
+
+.input__error-msg {
+  color: #dc143c;
+  font-size: 12px;
+  margin: 0 0 5px auto;
+  -webkit-transform: translateX(30px);
+          transform: translateX(30px);
 }
 
 .input__icon {
@@ -122,6 +131,14 @@ body {
   font-weight: 700;
   font-size: 16px;
   text-align: right;
+}
+
+.input__input--valid:focus {
+  outline: 2px solid #26c0ab;
+}
+
+.input__input--invalid {
+  outline: 2px solid #dc143c;
 }
 
 .input__input::-webkit-input-placeholder {
@@ -142,10 +159,6 @@ body {
 .input__input::placeholder {
   color: #00494d;
   opacity: 0.5;
-}
-
-.input__input:focus {
-  outline: 2px solid #26c0ab;
 }
 
 .input__btn-row {
@@ -226,8 +239,12 @@ body {
   opacity: 0.8;
 }
 
-.input__btn--input:focus {
+.input__btn--valid:focus {
   outline: 2px solid #26c0ab;
+}
+
+.input__btn--invalid {
+  outline: 2px solid #dc143c;
 }
 
 #icon-dollar {

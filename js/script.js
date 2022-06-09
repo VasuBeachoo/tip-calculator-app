@@ -1,6 +1,9 @@
+const billContainer = document.querySelector("#bill-label-container");
 const billInput = document.querySelector("#bill-amount-input");
+const tipContainer = document.querySelector("#tip-label-container");
 const tipBtns = Array.from(document.querySelectorAll(".input__btn--fixed"));
 const customTipBtn = document.querySelector("#custom-tip-btn");
+const peopleContainer = document.querySelector("#people-label-container");
 const peopleInput = document.querySelector("#people-number-input");
 const tipDisplay = document.querySelector("#tip-amount-display");
 const totalDisplay = document.querySelector("#total-amount-display");
@@ -15,6 +18,15 @@ let totalAmt = 0;
 let tipPerson = 0;
 let totalPerson = 0;
 
+const billError = document.createElement("p");
+billError.className = "input__error-msg";
+
+const tipError = document.createElement("p");
+tipError.className = "input__error-msg";
+
+const peopleError = document.createElement("p");
+peopleError.className = "input__error-msg";
+
 function notifyView() {
   tipDisplay.innerText = "$" + tipPerson.toFixed(2);
   totalDisplay.innerText = "$" + totalPerson.toFixed(2);
@@ -25,15 +37,75 @@ function resetView() {
   totalDisplay.innerText = "$0.00";
 }
 
+function displayError(errorType, errorMsg) {
+  if (errorType === "bill") {
+    billInput.className = "input__input input__input--invalid";
+    billError.innerText = errorMsg;
+    billContainer.append(billError);
+  } else if (errorType === "custom") {
+    customTipBtn.className = "input__btn input__btn--input input__btn--invalid";
+    tipError.innerText = errorMsg;
+    tipContainer.append(tipError);
+  } else if (errorType === "people") {
+    peopleInput.className = "input__input input__input--invalid";
+    peopleError.innerText = errorMsg;
+    peopleContainer.append(peopleError);
+  }
+}
+
+function removeErrors() {
+  const errorMsgs = Array.from(document.querySelectorAll(".input__error-msg"));
+  errorMsgs.forEach((msg) => msg && msg.remove());
+  billInput.className = "input__input input__input--valid";
+  customTipBtn.className = "input__btn input__btn--input input__btn--valid";
+  peopleInput.className = "input__input input__input--valid";
+}
+
+function checkErrors() {
+  let errorPresent = false;
+  if (billInput.value === "") removeErrors();
+  if (customTipBtn.value === "") removeErrors();
+  if (peopleInput.value === "") removeErrors();
+  if (
+    (peopleInput.value <= 0 || isNaN(parseFloat(peopleInput.value))) &&
+    peopleInput.value != ""
+  ) {
+    resetView();
+    displayError("people", "Must be positive");
+    errorPresent = true;
+  }
+  if (customTipBtn.value < 0) {
+    resetView();
+    displayError("custom", "Cannot be negative");
+    errorPresent = true;
+  }
+  if (customTipBtn.value !== "" && isNaN(parseFloat(customTipBtn.value))) {
+    resetView();
+    displayError("custom", "Must be a number");
+    errorPresent = true;
+  }
+  if (billInput.value !== "" && isNaN(parseFloat(billInput.value))) {
+    resetView();
+    displayError("bill", "Must be a number");
+    errorPresent = true;
+  }
+  if (parseFloat(billInput.value) < 0) {
+    resetView();
+    displayError("bill", "Cannot be negative");
+    errorPresent = true;
+  }
+  return errorPresent;
+}
+
 function updateModel() {
-  if (peopleInput.value <= 0 && peopleInput.value != "") {
-    resetView();
-  } else if (billInput.value === "") {
-    resetView();
-  } else if (customTipBtn.value < 0) {
-    resetView();
+  if (checkErrors()) {
   } else {
-    billAmt = parseFloat(billInput.value);
+    resetView();
+    if (billInput.value === "") {
+      billAmt = 0;
+    } else {
+      billAmt = parseFloat(billInput.value);
+    }
     if (peopleInput.value === "") {
       numPeople = 1;
     } else {
@@ -65,6 +137,7 @@ billInput.addEventListener("input", updateModel);
 peopleInput.addEventListener("input", updateModel);
 resetBtn.addEventListener("click", () => {
   resetView();
+  removeErrors();
   resetTipBtns();
   billInput.value = "";
   customTipBtn.value = "";

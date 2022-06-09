@@ -19,7 +19,7 @@
       <div class="component">
         <section class="input">
           <div class="input__container">
-            <div class="input__label-container">
+            <div id="bill-label-container" class="input__label-container">
               <p class="input__label">Bill</p>
               <img
                 src="./images/icon-dollar.svg"
@@ -31,12 +31,12 @@
             <input
               type="text"
               id="bill-amount-input"
-              class="input__input"
+              class="input__input input__input--valid"
               placeholder="0"
             />
           </div>
           <div class="input__container">
-            <div class="input__label-container">
+            <div id="tip-label-container" class="input__label-container">
               <p class="input__label">Select Tip %</p>
             </div>
             <div class="input__btn-row">
@@ -75,13 +75,13 @@
               <input
                 type="text"
                 id="custom-tip-btn"
-                class="input__btn input__btn--input"
+                class="input__btn input__btn--input input__btn--valid"
                 placeholder="Custom"
               />
             </div>
           </div>
           <div class="input__container">
-            <div class="input__label-container">
+            <div id="people-label-container" class="input__label-container">
               <p class="input__label">Number of People</p>
               <img
                 src="./images/icon-person.svg"
@@ -93,7 +93,7 @@
             <input
               type="text"
               id="people-number-input"
-              class="input__input"
+              class="input__input input__input--valid"
               placeholder="1"
             />
           </div>

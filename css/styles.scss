@@ -10,6 +10,7 @@ $colors: (
   Very-light-grayish-cyan: hsl(189, 41%, 97%),
   White: hsl(0, 0%, 100%),
   Pale-turqoise: #afeeee,
+  Crimson: #dc143c,
 );
 
 $font: "Space Mono", monospace;
@@ -74,12 +75,20 @@ body {
 
   &__label-container {
     @include flex(row, flex-start, center);
+    width: 100%;
   }
 
   &__label {
     color: color(Dark-grayish-cyan);
     font-size: 14.5px;
     margin: 0 0 5px;
+  }
+
+  &__error-msg {
+    color: color(Crimson);
+    font-size: 12px;
+    margin: 0 0 5px auto;
+    transform: translateX(30px);
   }
 
   &__icon {
@@ -98,13 +107,19 @@ body {
     font-size: 16px;
     text-align: right;
 
+    &--valid {
+      &:focus {
+        outline: 2px solid color(Strong-cyan);
+      }
+    }
+
+    &--invalid {
+      outline: 2px solid color(Crimson);
+    }
+
     &::placeholder {
       color: color(Very-dark-cyan);
       opacity: 0.5;
-    }
-
-    &:focus {
-      outline: 2px solid color(Strong-cyan);
     }
   }
 
@@ -155,10 +170,16 @@ body {
         color: color(Very-dark-cyan);
         opacity: 0.8;
       }
+    }
 
+    &--valid {
       &:focus {
         outline: 2px solid color(Strong-cyan);
       }
+    }
+
+    &--invalid {
+      outline: 2px solid color(Crimson);
     }
   }
 }
