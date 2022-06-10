@@ -28,11 +28,14 @@ const peopleError = document.createElement("p");
 peopleError.className = "input__error-msg";
 
 function notifyView() {
-  if (tipPerson <= 999999.99) tipDisplay.innerText = "$" + tipPerson.toFixed(2);
-  else tipDisplay.innerText = ">$1M";
-  if (totalPerson <= 999999.99)
-    totalDisplay.innerText = "$" + totalPerson.toFixed(2);
-  else totalDisplay.innerText = ">$1M";
+  if (tipPerson > 999999.99) tipDisplay.innerText = ">$1M";
+  else if (tipPerson < 0.01 && tipAmt > 0 && numPeople > 0)
+    tipDisplay.innerText = "<$0.01";
+  else tipDisplay.innerText = "$" + tipPerson.toFixed(2);
+  if (totalPerson > 999999.99) totalDisplay.innerText = ">$1M";
+  else if (totalPerson < 0.01 && totalAmt > 0 && numPeople > 0)
+    totalDisplay.innerText = "<$0.01";
+  else totalDisplay.innerText = "$" + totalPerson.toFixed(2);
 }
 
 function resetView() {
